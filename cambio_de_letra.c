@@ -5,13 +5,13 @@
  
 
 void error(const char *s);
-void procesoArchivo(char *archivo);
+void cambiar(char *archivo);
  
 int main(int argc, char *argv[])
 {
 	
-	DIR *dir;
-	struct dirent *ent;
+    DIR *dir;
+    struct dirent *ent;
     dir = opendir (".");
     if (dir == NULL)
     error("No puedo abrir el directorio");
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
       if ( (strcmp(ent->d_name, ".")!=0) && (strcmp(ent->d_name, "..")!=0) )
     {
       
-      procesoArchivo(ent->d_name);
+      cambiar(ent->d_name);
       
       
     }
@@ -41,7 +41,7 @@ void error(const char *s)
   perror (s);
   exit(EXIT_FAILURE);
 }
-void procesoArchivo(char *archivo)
+void cambiar(char *archivo)
 {
       int n=0;	
       char c=' ';
